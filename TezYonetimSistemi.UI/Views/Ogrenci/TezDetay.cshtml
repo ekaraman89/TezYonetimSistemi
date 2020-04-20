@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "TezDetay";
+}
+
+@{Html.RenderAction("TezDetayPartialView", "Default", new { ID = ViewBag.ID }); }<br />
+
+@{Html.RenderAction("TezDosyalariPartialView", "Default", new { ID = ViewBag.ID }); }
+
+@section scripts {
+    <script>
+
+        function DosyaSil(id) {
+            if (confirm("Dosya Silinsin mi ?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Ogrenci/DosyaSil",
+                    data: { ID: id },
+                    success: function (data) {
+                        var result = JSON.parse(data);
+                        if (result.durum == "OK") {
+                            $("#tr_" + id).remove();
+                            $("#message").append("<div class='alert alert-info'><strong></strong>" + result.mesaj + " </div>")
+
+                        }
+                        else if (result.durum = "NO") {
+                            $("#message").append("<div class='alert alert-info'><strong></strong>" + result.mesaj + " </div>")
+                        }
+
+                    }
+
+                });
+            }
+
+        }
+
+    </script>
+}

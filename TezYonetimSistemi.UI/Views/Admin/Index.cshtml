@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{Html.RenderAction("SoyYuklenenTezlerPartialView", "Default", new { lst = ViewBag.lst }); }
+@{Html.RenderAction("SonYuklenenDosyalarPartialView", "Default"); }

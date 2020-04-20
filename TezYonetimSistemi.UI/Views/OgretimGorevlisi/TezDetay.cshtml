@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "TezDetay";
+}
+
+@{Html.RenderAction("TezDetayPartialView", "Default", new { ID = ViewBag.ID }); }<br />
+
+@{Html.RenderAction("TezDosyalariPartialView", "Default", new { ID = ViewBag.ID }); }
+
+@section scripts {
+
+    <script>
+        $(".sil").remove();
+    </script>
+}

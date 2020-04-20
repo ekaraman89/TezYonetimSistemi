@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfOgrenci">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ogrenci" nillable="true" type="tns:Ogrenci" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOgrenci" nillable="true" type="tns:ArrayOfOgrenci" />
+  <xs:complexType name="Ogrenci">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OgrenciNumarasi" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Ogrenci" nillable="true" type="tns:Ogrenci" />
+  <xs:complexType name="BaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="OlusturmaTarihi" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseModel" nillable="true" type="tns:BaseModel" />
+</xs:schema>

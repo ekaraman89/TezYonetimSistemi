@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55069/OgrenciService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" />
+  <xs:element name="OgrencileriGetir">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrencileriGetirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="OgrencileriGetirResult" nillable="true" type="q1:ArrayOfOgrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciEkle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="ogrenci" nillable="true" type="q2:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciEkleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="OgrenciEkleResult" nillable="true" type="q3:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciGuncelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="ogrenci" nillable="true" type="q4:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciGuncelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="OgrenciGuncelleResult" nillable="true" type="q5:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciSil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" minOccurs="0" name="ogrenci" nillable="true" type="q6:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciSilResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OgrenciSilResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

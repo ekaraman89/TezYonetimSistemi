@@ -1,0 +1,69 @@
+﻿@model  IEnumerable<TezYonetimSistemi.UI.Models.TezDosyaYuklemeViewModel>
+
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Son Yüklenen 10 Dosya
+                </div>
+                <div class="tools"> </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_2">
+                    <thead>
+                        <tr>
+                            @* Tez Adı - Ogretim Görevlisi - Tez Ders Kodu - Tez Donemi - Dosya Adı - Açıklaması - Yukleyen Ogrenci  *@
+                            <th> Tez Adı</th>
+                            <th> Ogretim Görevlisi</th>
+                            <th> Tez Ders Kodu</th>
+                            <th> Tez Donemi</th>
+                            <th> Dosya Adı</th>
+                            <th> Açıklaması</th>
+                            <th> Yukleyen Ogrenci</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <label>
+                                        @if (ViewBag.OgretmenID == null)
+                                        {
+                                            @Html.ActionLink(item.Tez.TezAdi, "TezDetay", "Admin", new { ID = item.Tez.ID }, null)
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(item.Tez.TezAdi, "TezDetay", "OgretimGorevlisi", new { ID = item.Tez.ID }, null)
+                                        }
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>@item.Unvan @item.Ogretmen.Ad @item.Ogretmen.Soyad </label>
+                                </td>
+                                <td>
+                                    <label>@item.TezDersKodu.Kod - @item.TezDersKodu.Adi</label>
+                                </td>
+                                <td>
+                                    <label>@item.TezDonemi.TezDonemAdi</label>
+                                </td>
+                                <td> <label>@item.DosyaAdi</label></td>
+                                <td> <label>@item.DosyaAciklama</label></td>
+                                <td>
+                                    <label>
+                                        @Html.ActionLink(item.Ogrenci[0].Ad + " " + item.Ogrenci[0].Soyad, "Detay", "Ogrenci", new { id = item.Ogrenci[0].ID }, null)<br />
+                                    </label>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

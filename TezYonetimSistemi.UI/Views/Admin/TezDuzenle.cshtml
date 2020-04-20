@@ -1,0 +1,121 @@
+﻿@model TezYonetimSistemi.UI.Models.TezViewModel
+@{
+    ViewBag.Title = "TezEkle";
+}
+
+<h2>Tez Düzenle</h2>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="btn-group">
+            <button class="btn sbold green" onclick="location.href='@Url.Action("Tezler")'">
+                Tezler Listesi
+                <i class="fa fa-chevron-left"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br />
+@Html.Raw(ViewBag.Mesaj)
+@using (Html.BeginForm("TezDuzenle", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tez Adı</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TezAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TezAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tez Dönemi</label>
+            <div class="col-md-10">
+                <p class="form-control-static">   @ViewBag.TezDonemi.TezDonemAdi </p>
+
+                @Html.Hidden("TezDonemID", (string)Convert.ToString(ViewBag.TezDonemi.ID))
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tez Ders Kodu</label>
+            <div class="col-md-10">
+                <select class="bs-select form-control" name="TezKodID" data-live-search="true" data-size="8">
+                    @foreach (var item in ViewBag.TezDersKodu)
+                    {
+                        if (Model.TezKodID == item.ID)
+                        {
+                            <option value="@item.ID" selected>@item.Kod - @item.Adi</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ID">@item.Kod - @item.Adi</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Öğretim Görevlisi</label>
+            <div class="col-md-10">
+                <select class="bs-select form-control select2" name="OgretmenID" data-live-search="true" data-size="8">
+                    @foreach (var item in ViewBag.Ogretmenler)
+                    {
+                        if (Model.OgretmenID == item.ID)
+                        {
+                            <option value="@item.ID" selected>@item.Unvan @item.Ad @item.Soyad</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ID">@item.Unvan @item.Ad @item.Soyad</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Öğrenciler</label>
+            <div class="col-md-10">
+                <select id="Ogrenciler" name="Ogrenciler" class="form-control select2-multiple select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
+                    @foreach (var item in ViewBag.Ogrenciler)
+                    {
+                        if (Model.Ogrenciler.Count(x => x == item.ID) > 0)
+                        {
+                            <option value="@item.ID" selected>@item.OgrenciNo - @item.Ad @item.Soyad</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ID">@item.OgrenciNo - @item.Ad @item.Soyad</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Düzenle" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Tezler")
+</div>
+
+@section styles{
+    <link href="/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section scripts {
+    <script src="/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="/assets/pages/scripts/components-select2.js" type="text/javascript"></script>
+}

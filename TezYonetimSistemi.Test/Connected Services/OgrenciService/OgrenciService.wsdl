@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OgrenciService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55069/OgrenciService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55069/OgrenciService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55069/OgrenciService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TezYonetimSistemi.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOgrenciService_OgrencileriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgrencileriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrencileriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgrencileriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciEkle_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciEkle" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciEkle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciGuncelle_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciGuncelle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciSil_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciSil" />
+  </wsdl:message>
+  <wsdl:message name="IOgrenciService_OgrenciSil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgrenciSilResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOgrenciService">
+    <wsdl:operation name="OgrencileriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOgrenciService/OgrencileriGetir" message="tns:IOgrenciService_OgrencileriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOgrenciService/OgrencileriGetirResponse" message="tns:IOgrenciService_OgrencileriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciEkle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciEkle" message="tns:IOgrenciService_OgrenciEkle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciEkleResponse" message="tns:IOgrenciService_OgrenciEkle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciGuncelle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciGuncelle" message="tns:IOgrenciService_OgrenciGuncelle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciGuncelleResponse" message="tns:IOgrenciService_OgrenciGuncelle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciSil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciSil" message="tns:IOgrenciService_OgrenciSil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOgrenciService/OgrenciSilResponse" message="tns:IOgrenciService_OgrenciSil_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOgrenciService" type="tns:IOgrenciService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OgrencileriGetir">
+      <soap:operation soapAction="http://tempuri.org/IOgrenciService/OgrencileriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciEkle">
+      <soap:operation soapAction="http://tempuri.org/IOgrenciService/OgrenciEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciGuncelle">
+      <soap:operation soapAction="http://tempuri.org/IOgrenciService/OgrenciGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgrenciSil">
+      <soap:operation soapAction="http://tempuri.org/IOgrenciService/OgrenciSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OgrenciService">
+    <wsdl:port name="BasicHttpBinding_IOgrenciService" binding="tns:BasicHttpBinding_IOgrenciService">
+      <soap:address location="http://localhost:55069/OgrenciService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
